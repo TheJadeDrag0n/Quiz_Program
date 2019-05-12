@@ -5,12 +5,28 @@ from bottle import run, route, view, get, post, request, static_file
 #==[ Pages ]==#
 
 
-#--[ index ]--#
+#--[ Index ]--#
+
 @route("/")
 @view("index")
 def index():
     
     pass
+
+
+#--[ Quiz ]--#
+@route("/quiz")
+@view("quiz")
+def quiz():
+    
+    pass
+
+
+
+#==[ Images ]==#
+@route('/pictures/<filename>')
+def picture(filename):
+    return static_file(filename, root='./images')
 
 
 
