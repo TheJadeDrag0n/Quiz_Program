@@ -26,8 +26,12 @@
 								
 								<div  style="backgrond-color:#e7ebf0" class="card-content">
 									
-									<p>{{question_list.questions}}
+									% for Questions in test:
+									
+									<p> {{Questions.question}}
 									</p>
+									
+									% end
 									
 									<div class="row">
 									</div>						

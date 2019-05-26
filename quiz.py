@@ -5,14 +5,14 @@ from itertools import count
 
 class Questions:
     
-    question_num = count(0)
+    question_id = count(0)
     
     
-    def __init__(self, image, question, choice_1, choice_2, choice_3, choice_4):
+    def __init__(self, question, state, choice_1, choice_2, choice_3, choice_4):
         
-        self.id = next(self.question_num)
-        self.cover = image
+        self.id = next(self.question_id)
         self.question = question
+        self.state = state
         self.choice_1 = choice_1
         self.choice_2 = choice_2
         self.choice_3 = choice_3
@@ -21,20 +21,19 @@ class Questions:
 
 #==[ Test Data ]==#
 
-question_list = [
-    
-    Questions("logo.png", "test_question", "test_question_1", "test_question_2", "test_question_3", "test_question_4"),
-    Questions("logo.png", "test_question", "test_question_1", "test_question_2", "test_question_3", "test_question_4"),
-    Questions("logo.png", "test_question", "test_question_1", "test_question_2", "test_question_3", "test_question_4")
+
+
+test_list = [ #                / 0 = not anwsered   1 = correct   2 = incorrect
+#                              |
+    Questions("test question", 0, "test_choice1", "test_choice2", "test_choice3", "test_choice4")
     
     ]
 
 
 
+#======[ Pages ]======#
 
-#===[ Pages ]===#
-
- #--[ Index ]--#
+    #--[ Index ]--#
 
 @route("/")
 @view("index")
@@ -43,22 +42,26 @@ def index():
     pass
 
 
- #--[ Quiz ]--#
+
+    #--[ Quiz ]--#
  
 @route("/quiz")
 @view("quiz")
 def quiz():
-    
-    data = dict (questions=question_list)
-    return data     
+       
+    data = dict (test=test_list)
+    return data
 
 
-#===[ Images ]===#
+
+#=====[ Images ]======#
 
 @route('/pictures/<filename>')
 def picture(filename):
     return static_file(filename, root='./images')
 
 
-#Run Server
+
+
+#=====[ Run Server ]=====#
 run(host='0.0.0.0',port = 8080, reloader=True, debug=True)
