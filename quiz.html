@@ -11,7 +11,7 @@
 		
 		<div class="">
 
-			<div style= class="" col="offset-s1 s10 z-depth-5 "> 
+			<div style="" class="" col="offset-s1 s10 z-depth-5 "> 
 				
 				<div class="row">
 		
@@ -20,18 +20,105 @@
 						<div class="row">
 						</div>
 						
+						% for Questions in test:
+						
 						<div class="card horizontal">
 							
 							<div class="card-stacked">
 								
 								<div  style="backgrond-color:#e7ebf0" class="card-content">
 									
-									% for Questions in test:
+								
+								
+								
+									<div class="center">
 									
-									<p> {{Questions.question}}
-									</p>
+										<p> <font size="12px"> {{Questions.question}}
+										</font>
+										</p>
 									
-									% end
+									</div>
+								
+									
+									
+									
+									
+									<div class="col s12 m6">
+										
+										<div class="card blue-grey darken-1">
+										
+											<div class="center card-content white-text">
+									
+											<p> <font size="6px">{{Questions.choice_1}}
+											</font>
+											</p>
+											
+									
+									
+											</div>
+										
+										</div>
+									
+									</div>
+									
+									
+									
+									<div class="col s12 m6">
+										
+										<div class="card blue-grey darken-1">
+										
+											<div class="center card-content white-text">
+									
+											<p> <font size="6px">{{Questions.choice_2}}
+											</font>
+											</p>
+									
+											</div>
+										
+										</div>
+									
+									</div>
+									
+									
+									
+									<div class="col s12 m6">
+										
+										<div class="card blue-grey darken-1">
+										
+											<div class="center card-content white-text">
+									
+											<p> <font size="6px">{{Questions.choice_3}}
+											</font>
+											</p>
+									
+											</div>
+										
+										</div>
+									
+									</div>
+									
+									
+									
+									<div class="col s12 m6">
+										
+										<div class="card blue-grey darken-1">
+										
+											<div class="center card-content white-text">
+									
+											<p> <font size="6px">{{Questions.choice_4}}
+											</font>
+											</p>
+									
+											</div>
+										
+										</div>
+									
+									</div>
+									
+									
+									
+									
+									
 									
 									<div class="row">
 									</div>						
@@ -42,12 +129,16 @@
 							
 						</div>
 						
+						% end
+									
 
 					</div>
 
 
 				</div>
-		
+				
+				
+				
 			</div>
 	
 		
