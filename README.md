@@ -10,4 +10,6 @@
   - creating basic UI
 
 * Verson 3.0
-  - creating python code for the questions and answers
+  - ~~creating python code for the questions and answers~~
+  - display the questions and choices
+  
