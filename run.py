@@ -24,13 +24,23 @@ class Questions:
 test_list = [ 
 
     Questions("no one", "someone", "you", "..."),   # who are you
-    Questions("no one", "someone", "me", "..."),    # who am i
+    Questions("1", "2", "4", "8"),    # who am i
     Questions("42", "14 x 3", "6.48074^2", "378/9") # what is the to anwser to life?
     ]
 
 
 
 #======[ Pages ]======#
+
+
+
+
+@route("/test")
+@view("test")
+def test():
+    
+    pass
+
 
     #--[ Index ]--#
 
@@ -48,17 +58,20 @@ def index():
 @view("quiz")
 def quiz():
        
+       
     data = dict (website_questions=test_list)
     return data
 
 
 
-@route("/quiz_completed")
+@route("/quiz_completed", method="POST")
 @view("quiz")
-def quiz_completed():
+def quiz_completed(question_id):
     
     correct = 0
     
+    choice = request.forms.get()
+
     
 
 

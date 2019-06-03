@@ -20,61 +20,89 @@
 						<div class="row">
 						</div>
 						
+
+						
 				
 						% for Questions in website_questions:
-						
-						<div class="card horizontal">
 							
-							<div class="card-stacked">
+							<div class="card horizontal">
+							
+								<div class="card-stacked">
 								
-								<div  style="backgrond-color:#e7ebf0" class="card-content">
+									<div  style="backgrond-color:#e7ebf0" class="card-content">
 									
-								
-									
-								
-									<div class="center">
-									
-										<p> <font size="12px"> Question
-										</font>
-										</p>
-									
-									</div>
 								
 									
+								
+										<div class="center">
 									
-									
-									<div class="col s12 m6">
-										
-										<div class="card blue-grey darken-1">
-										
-											<div class="center card-content white-text">
-									
-												<input type="radio" value="final_choice_1" name="{{Questions.choice_1}}" >
-
-											<p> <font size="6px">
+											<p> <font size="12px"> Question
 											</font>
 											</p>
-			
 									
-											</div>
+										</div>
+								
+									
+										<form action="/quiz_completed" method="post">
 										
+										
+										<div class="col s12 m6">
+										
+											<div class="card blue-grey darken-1">
+										
+												<div class="card-content white-text">
+									
+																<p>
+																	<label>
+																		<input name="choices{{Questions.id}}" id="choice_1" type="radio" />
+																		<span>{{Questions.choice_1}}</span>
+																	</label>
+																</p>
+																
+																<p>
+																	<label>
+																		<input name="choices{{Questions.id}}" id="choice_2" type="radio" />
+																		<span>{{Questions.choice_2}}</span>
+																	</label>
+																</p>
+																
+																<p>
+																	<label>
+																		<input name="choices{{Questions.id}}" id="choice_3" type="radio"  />
+																		<span>{{Questions.choice_3}}</span>
+																	</label>
+																</p>
+																
+																<p>
+																	<label>
+																		<input name="choices{{Questions.id}}" id="choice_4" type="radio"  />
+																		<span>{{Questions.choice_4}}</span>
+																	</label>
+																</p>
+
+												</div>
+										
+											</div>
+									
 										</div>
 									
-									</div>
-									
 							
 									
-									<div class="row">
-									</div>						
+										<div class="row">
+										</div>						
 
-								</div>
+									</div>
 								
+								</div>
+							
 							</div>
 							
-						</div>
 						
 						% end
-									
+						
+							<input type="submit" name="save"  value="Save" >
+						
+						</form>
 
 					</div>
 
@@ -89,11 +117,7 @@
 		</div>
 		
 		
-		
-		
-		
-		
-		
-		
+			
 	</body>
+	
 </html>
