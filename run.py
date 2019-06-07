@@ -66,13 +66,28 @@ def quiz():
 
 @route("/quiz_completed", method="POST")
 @view("quiz")
-def quiz_completed(question_id):
+def quiz_completed(Questions):
     
     correct = 0
     
-    choice = request.forms.get()
-
+    Answer1 = "no one"
+    Answer2 = "1"
+    Answer3 = "42"
     
+    
+    for num in Questions:
+    
+        user_choice = request.forms.get(Questins.id)
+        
+        if user_choice == Answer1 or user_choice == Answer2 or user_choice == Answer3 :
+            
+            correct = correct + 1
+            
+            
+        else: 
+
+
+
 
 
 
