@@ -66,7 +66,7 @@ def quiz():
 
 @route("/quiz_completed", method="POST")
 @view("quiz")
-def quiz_completed(Questions):
+def quiz_completed():
     
     correct = 0
     
@@ -75,9 +75,9 @@ def quiz_completed(Questions):
     Answer3 = "42"
     
     
-    for num in Questions:
+    for num in test_list:
     
-        user_choice = request.forms.get(Questins.id)
+        user_choice = request.forms.get(1)
         
         if user_choice == Answer1 or user_choice == Answer2 or user_choice == Answer3 :
             
@@ -85,6 +85,8 @@ def quiz_completed(Questions):
             
             
         else: 
+            
+            pause=0
 
 
 
