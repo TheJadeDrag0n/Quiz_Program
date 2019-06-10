@@ -26,7 +26,6 @@
 						% for Questions in website_questions:
 							
 							
-							% counter = next(counter)
 							
 							<div class="card horizontal">
 							
@@ -39,7 +38,7 @@
 								
 										<div class="center">
 									
-											<p> <font size="12px"> Question
+											<p> <font size="12px"> {{Questions.name}}
 											</font>
 											</p>
 									
@@ -57,28 +56,28 @@
 									
 																<p>
 																	<label>
-																		<input name="{{counter}}" id="inp_choices1" type="radio" />
+																		<input name="{{Questions.id}}" id="inp_choices1" type="radio" />
 																		<span>{{Questions.choice_1}}</span>
 																	</label>
 																</p>
 																
 																<p>
 																	<label>
-																		<input name="{{counter}}" id="inp_choices2" type="radio" />
+																		<input name="{{Questions.id}}" id="inp_choices2" type="radio" />
 																		<span>{{Questions.choice_2}}</span>
 																	</label>
 																</p>
 																
 																<p>
 																	<label>
-																		<input name="{{counter}}" id="inp_choices3" type="radio"  />
+																		<input name="{{Questions.id}}" id="inp_choices3" type="radio"  />
 																		<span>{{Questions.choice_3}}</span>
 																	</label>
 																</p>
 																
 																<p>
 																	<label>
-																		<input name="{{counter}}" id="inp_choices4" type="radio"  />
+																		<input name="{{Questions.id}}" id="inp_choices4" type="radio"  />
 																		<span>{{Questions.choice_4}}</span>
 																	</label>
 																</p>

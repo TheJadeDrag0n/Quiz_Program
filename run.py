@@ -8,14 +8,14 @@ class Questions:
     question_id = count(0)
     
     
-    def __init__(self, choice_1, choice_2, choice_3, choice_4):
+    def __init__(self, choice_1, choice_2, choice_3, choice_4, name):
         
         self.id = next(self.question_id)
         self.choice_1 = choice_1
         self.choice_2 = choice_2
         self.choice_3 = choice_3
-        self.choice_4 = choice_4        
-
+        self.choice_4 = choice_4      
+        self.name = name
 
 #==[ Test Data ]==#
 
@@ -23,9 +23,9 @@ class Questions:
 
 test_list = [ 
 
-    Questions("no one", "someone", "you", "..."),   # who are you
-    Questions("1", "2", "4", "8"),    # who am i
-    Questions("42", "14 x 3", "6.48074^2", "378/9") # what is the to anwser to life?
+    Questions("no one", "someone", "you", "...", "Question 1"), 
+    Questions("1", "2", "4", "8", "Question 2"), 
+    Questions("42", "14 x 3", "6.48074^2", "378/9", "Question 3")
     ]
 
 
@@ -58,7 +58,6 @@ def index():
 @view("quiz")
 def quiz():
     
-    counter = count(0)
     
     data = dict (website_questions=test_list)
     return data
@@ -70,10 +69,11 @@ def quiz():
 def quiz_completed():
     
     correct = 0
+    wrong = 0
     
-    Answer1 = "no one"
-    Answer2 = "1"
-    Answer3 = "42"
+    answer1 = "no one"
+    answer2 = "1"
+    answer3 = "42"
     
     user_choice1 = request.forms.get(0)
     user_choice2 = request.forms.get(1)
@@ -82,7 +82,49 @@ def quiz_completed():
 
 
 
+# Will change below code
 
+    if user_choice1 == answer1:
+        
+        correct = correct + 1
+        
+    else:
+        
+        wrong = wrong + 1
+            
+            
+            
+    if user_choice2 == answer2:
+            
+        correct = correct + 1
+            
+    else:
+            
+        wrong = wrong + 1
+           
+           
+            
+    if user_choice3 == answer3:
+            
+        correct = correct + 1
+            
+    else:
+            
+            wrong = wrong + 1
+            
+            
+            
+    if user_choice1 == answer1:
+                
+        correct = correct + 1
+                
+    else:
+                
+        wrong = wrong + 1
+        
+    
+    data = int(correct)    
+    return data
 
 #=====[ Images ]======#
 
