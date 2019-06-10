@@ -57,8 +57,9 @@ def index():
 @route("/quiz")
 @view("quiz")
 def quiz():
-       
-       
+    
+    counter = count(0)
+    
     data = dict (website_questions=test_list)
     return data
 
@@ -74,20 +75,10 @@ def quiz_completed():
     Answer2 = "1"
     Answer3 = "42"
     
-    
-    for num in test_list:
-    
-        user_choice = request.forms.get(1)
-        
-        if user_choice == Answer1 or user_choice == Answer2 or user_choice == Answer3 :
-            
-            correct = correct + 1
-            
-            
-        else: 
-            
-            pause=0
-
+    user_choice1 = request.forms.get(0)
+    user_choice2 = request.forms.get(1)
+    user_choice3 = request.forms.get(2)
+    user_choice4 = request.forms.get(3)
 
 
 
