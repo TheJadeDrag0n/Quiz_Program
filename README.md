@@ -14,4 +14,6 @@
   - display the questions and choices
   
 * Verson 4.0
- - being able to input the choices
+  - add fuction to the picking choices 
+  - display number of correct 
+  - display answers
