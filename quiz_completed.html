@@ -1,35 +1,44 @@
 <html>
-
 	% include('shared/header.html')
 	% include('shared/navbar.html')
 
-	<body bgcolor='#000000'>
 
-		
-		<div class="row">
-		</div>
-		
-				<div class="">
+<body bgcolor='#000000'>
 
-			<div style= class="" col="offset-s1 s10 z-depth-5 "> 
-				
-				<div class="row">
-		
-					<div style="background-color:#f46600;;" class="offset-s1 col s10">
+	<div class="card horizontal">
+							
+								<div class="card-stacked">
+								
+									<div  style="backgrond-color:#e7ebf0" class="card-content">
+									
+								
+									
+								
+										<div class="center">
+									
+											<p> <font size="12px"> you got (num) correct
+											</font>
+											</p>
+											<br>
+											<p> <font size="12px"> The correct answers are :
+											</font>
+											</p>
+											<br>
+											% for text in website_answer:
 											
+											<p> <font size="12px"> {{text}}
+											</font>
+											</p>
+											
+											%end
+											
+										</div>								
+										<div class="row">
+										</div>						
 
-					</div>
-
-
-				</div>
-		
-			</div>
-	
-		
-		</div>
-		
-		
-		
+									</div>
+								
+								</div>	
 		
 	</body>
 </html>

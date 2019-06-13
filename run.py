@@ -17,10 +17,9 @@ class Questions:
         self.choice_4 = choice_4      
         self.name = name
 
+
+
 #==[ Test Data ]==#
-
-
-
 test_list = [ 
 
     Questions("no one", "someone", "you", "...", "Question 1"), 
@@ -28,6 +27,14 @@ test_list = [
     Questions("42", "14 x 3", "6.48074^2", "378/9", "Question 3")
     ]
 
+
+answers = [
+    
+    "no one",
+    "1",
+    "42"
+    
+    ]
 
 
 #======[ Pages ]======#
@@ -65,15 +72,13 @@ def quiz():
 
 
 @route("/quiz_completed", method="POST")
-@view("quiz")
+@view("quiz_completed")
 def quiz_completed():
     
-    correct = 0
+    
+    correct = 0    
     wrong = 0
     
-    answer1 = "no one"
-    answer2 = "1"
-    answer3 = "42"
     
     user_choice1 = request.forms.get(0)
     user_choice2 = request.forms.get(1)
@@ -82,49 +87,12 @@ def quiz_completed():
 
 
 
-# Will change below code
-
-    if user_choice1 == answer1:
-        
-        correct = correct + 1
-        
-    else:
-        
-        wrong = wrong + 1
-            
-            
-            
-    if user_choice2 == answer2:
-            
-        correct = correct + 1
-            
-    else:
-            
-        wrong = wrong + 1
-           
-           
-            
-    if user_choice3 == answer3:
-            
-        correct = correct + 1
-            
-    else:
-            
-            wrong = wrong + 1
-            
-            
-            
-    if user_choice1 == answer1:
-                
-        correct = correct + 1
-                
-    else:
-                
-        wrong = wrong + 1
-        
-    
-    data = int(correct)    
+    data = dict (website_answers = answers)
     return data
+        
+      
+    
+
 
 #=====[ Images ]======#
 
