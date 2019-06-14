@@ -8,7 +8,7 @@ class Questions:
     question_id = count(0)
     
     
-    def __init__(self, choice_1, choice_2, choice_3, choice_4, name, correct):
+    def __init__(self, choice_1, choice_2, choice_3, choice_4, name, correct, answer):
         
         self.id = next(self.question_id)
         self.choice_1 = choice_1
@@ -22,28 +22,17 @@ class Questions:
 
 
 #==[ Test Data ]==#
-test_list = [     # the test is layed out a : Choice 1 - 4, Question, Correct, Answer 
+test_list = [# the test is layed out a : Choice 1 - 4, Question, Correct, Answer 
                   #                                                      \__ a value of 0 means it's wrong and 1 is correct. 0 is default
-    Questions("no one", "someone", "you", "...", "Question 1", 0, "no one"), 
-    Questions("1", "2", "4", "8", "Question 2", 0, "1"), 
-    Questions("42", "14 x 3", "6.48074^2", "378/9", "Question 3", 0, "42")
+    Questions("System Software", "Application Software", "Utility Software", "Malware", "The Operating System is a :", 0, "System Software"), 
+    Questions("RAM", "Cache", "Directories", "None of the above", "Files are Organized in :", 0, "Directories"), 
+    Questions("Fetching", "Controlling", "Storing", "Executing", "The process of carrying out a command is called :", 0, "Executing"),
+    Questions("Rewrite","Read","Readable","Random","What does the R in RAM stands for?", 0, "Random")
     ]
-
-
 
 #======[ Pages ]======#
 
-
-
-
-@route("/test")
-@view("test")
-def test():
-    
-    pass
-
-
-    #--[ Index ]--#
+#--[ Index ]--#
 
 @route("/")
 @view("index")
@@ -69,24 +58,20 @@ def quiz():
 @view("quiz_completed")
 def quiz_completed():
     
-    
-    
-    
-    user_choice1 = request.forms.get(0)  # grabs the input form quiz.html for question 1,2,3, etc
-    user_choice2 = request.forms.get(1)
-    user_choice3 = request.forms.get(2)
+    total_correct = 0
 
-    for answer in Questions:
+
+    for Questions in test_list:
+
+        user_choice = request.forms.get(Questions.id)  # grabs the input form quiz.html for question 1,2,3, etc
         
-        if user_choice1 == Questions.choice_1: # checks if user's choice is equal to the answer
+        if user_choice == Questions.answer: # checks if user's choice is equal to the answer
             
-            Question.correct = 1        
+            total_correct = total_correct + 1        
 
     data = dict (website_answers = test_list)
     return data
-        
-      
-    
+
 
 
 #=====[ Images ]======#

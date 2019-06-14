@@ -16,7 +16,7 @@
 								
 										<div class="center">
 									
-											<p> <font size="12px"> you got {{correct}} correct
+											<p> <font size="12px"> you got {{total_correct}} correct
 											</font>
 											</p>
 											<br>
@@ -24,13 +24,13 @@
 											</font>
 											</p>
 											<br>
-											% for in list:
+											% for Questions in list:
 											
-											<p> <font size="12px"> {{text}}
-											</font>
-											</p>
+												<p> <font size="12px"> {{Questions.answer}}
+												</font>
+												</p>
 											
-											%end
+											% end
 											
 										</div>								
 										<div class="row">
