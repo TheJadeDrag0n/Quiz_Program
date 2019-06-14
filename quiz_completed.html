@@ -1,14 +1,44 @@
 <html>
-
 	% include('shared/header.html')
 	% include('shared/navbar.html')
 
-	<body bgcolor='#000000'>
 
-		
-		<div class="row">
-		</div>
-		
+<body bgcolor='#000000'>
+
+	<div class="card horizontal">
+							
+								<div class="card-stacked">
+								
+									<div  style="backgrond-color:#e7ebf0" class="card-content">
+									
+								
+									
+								
+										<div class="center">
+									
+											<p> <font size="12px"> you got {{total_correct}} correct
+											</font>
+											</p>
+											<br>
+											<p> <font size="12px"> The correct answers are :
+											</font>
+											</p>
+											<br>
+											% for Questions in list:
+											
+												<p> <font size="12px"> {{Questions.answer}}
+												</font>
+												</p>
+											
+											% end
+											
+										</div>								
+										<div class="row">
+										</div>						
+
+									</div>
+								
+								</div>	
 		
 	</body>
 </html>
