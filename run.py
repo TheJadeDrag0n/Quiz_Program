@@ -1,4 +1,4 @@
-from bottle import run, route, view, get, post, request, static_file
+from bottle import run, route, view, get, post, request, static_file 
 from itertools import count
 
 
@@ -8,7 +8,7 @@ class Questions:
     question_id = count(0)
     
     
-    def __init__(self, choice_1, choice_2, choice_3, choice_4, name, correct, answer):
+    def __init__(self, choice_1, choice_2, choice_3, choice_4, name, correct, answer): # 
         
         self.id = next(self.question_id)
         self.choice_1 = choice_1
@@ -36,7 +36,7 @@ test_list = [# the test is layed out a : Choice 1 - 4, Question, Correct, Answer
 
 @route("/")
 @view("index")
-def index():
+def index():   # will only have a link to the quiz page saying "Start the Quiz"
     
     pass
 
@@ -46,17 +46,17 @@ def index():
  
 @route("/quiz")
 @view("quiz")
-def quiz():
+def quiz(): # 
     
     
-    data = dict (website_questions=test_list)  # send the question list to quiz.html
-    return data
+    data = dict (website_questions=test_list)  
+    return data # returns the data to be able to show the questions and choices on the HTML page
 
 
 
 @route("/quiz_completed", method="POST")
 @view("quiz_completed")
-def quiz_completed():
+def quiz_completed(): # will display the correct answers and number cf correct answers from the user
     
     total_correct = 0
 
@@ -67,7 +67,7 @@ def quiz_completed():
         
         if user_choice == Questions.answer: # checks if user's choice is equal to the answer
             
-            total_correct = total_correct + 1        
+            total_correct = total_correct + 1    # if the user's choice correct, it adds one to the score    
 
     data = dict (website_answers = test_list)
     return data
