@@ -2,6 +2,7 @@
 	% include('shared/header.html')
 	% include('shared/navbar.html')
 
+	% total = 0
 
 <body bgcolor='#000000'>
 
@@ -10,25 +11,29 @@
 								<div class="card-stacked">
 								
 									<div  style="backgrond-color:#e7ebf0" class="card-content">
-									
+										
+										% for Questions in website_answers:
+										% total = total + Questions.correct
+										% end
 								
 									
 								
 										<div class="center">
 									
-											<p> <font size="12px"> you got {{total_correct}} correct
+											<p> <font size="12px"> You Got {{total}} Correct!
 											</font>
 											</p>
 											<br>
-											<p> <font size="12px"> The correct answers are :
+											<p> <font size="8px"> The correct answers are :
 											</font>
 											</p>
 											<br>
-											% for Questions in list:
-											
-												<p> <font size="12px"> {{Questions.answer}}
+											% for Questions in website_answers:
+												
+												<p> <font size="4px">{{Questions.name}} {{Questions.answer}}
 												</font>
 												</p>
+												<br>
 											
 											% end
 											

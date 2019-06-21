@@ -5,12 +5,12 @@ from itertools import count
 
 class Questions:
     
-    question_id = count(0)
+    _id = count(0)
     
     
     def __init__(self, choice_1, choice_2, choice_3, choice_4, name, correct, answer): # 
         
-        self.id = next(self.question_id)
+        self.id = next(self._id)
         self.choice_1 = choice_1
         self.choice_2 = choice_2
         self.choice_3 = choice_3
@@ -58,16 +58,20 @@ def quiz(): #
 @view("quiz_completed")
 def quiz_completed(): # will display the correct answers and number cf correct answers from the user
     
-    total_correct = 0
-
-
     for Questions in test_list:
-
+        
+        
         user_choice = request.forms.get(Questions.id)  # grabs the input form quiz.html for question 1,2,3, etc
+        
         
         if user_choice == Questions.answer: # checks if user's choice is equal to the answer
             
-            total_correct = total_correct + 1    # if the user's choice correct, it adds one to the score    
+            Questions.correct = 1    # if the user's choice correct, it adds one to the score    
+            
+        else:
+        
+            Questions.correct = 0
+            
 
     data = dict (website_answers = test_list)
     return data
