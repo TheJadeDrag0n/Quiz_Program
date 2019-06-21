@@ -2,7 +2,8 @@
 	% include('shared/header.html')
 	% include('shared/navbar.html')
 
-
+	% total = 0
+	
 <body bgcolor='#000000'>
 
 	<div class="card horizontal">
@@ -15,8 +16,12 @@
 									
 								
 										<div class="center">
-									
-											<p> <font size="12px"> you got {{total_correct}} correct
+
+											% for Questions in website_answers:
+											% total = total + Questions.correct
+											% end
+											
+											<p> <font size="12px"> you got {{total}} correct
 											</font>
 											</p>
 											<br>
@@ -24,7 +29,7 @@
 											</font>
 											</p>
 											<br>
-											% for Questions in list:
+											% for Questions in website_answers:
 											
 												<p> <font size="12px"> {{Questions.answer}}
 												</font>
