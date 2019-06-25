@@ -24,10 +24,10 @@ class Questions:
 #==[ Test Data ]==#
 test_list = [# the test is layed out a : Choice 1 - 4, Question, Correct, Answer 
                   #                                                      \__ a value of 0 means it's wrong and 1 is correct. 0 is default
-    Questions("System Software", "Application Software", "Utility Software", "Malware", "The Operating System is a :", 0, "System Software"), 
+    Questions("System Software", "Application Software", "Utility Software", "Malware", "The Operating System is a :",1,"System Software"), 
     Questions("RAM", "Cache", "Directories", "None of the above", "Files are Organized in :", 0, "Directories"), 
-    Questions("Fetching", "Controlling", "Storing", "Executing", "The process of carrying out a command is called :", 0, "Executing"),
-    Questions("Rewrite","Read","Readable","Random","What does the R in RAM stands for?", 0, "Random")
+    Questions("Fetching", "Controlling", "Storing", "Executing", "The process of carrying out a command is called :",0,"Executing"),
+    Questions("Rewrite","Read","Readable","Random","What does the R in RAM stands for?",0,"Random")
     ]
 
 #======[ Pages ]======#
@@ -58,7 +58,19 @@ def quiz(): #
 @view("quiz_completed")
 def quiz_completed(): # will display the correct answers and number cf correct answers from the user
     
+    
+    for Questions in test_list:
+    
+        user_choice1 = request.forms.get("Q1")
+        
+        if user_choice1 == "System Software": 
+        
+            Questions.correct = 1
+            
+        else:
+            Questions.correct = 0
 
+    
 
     data = dict (website_answers = test_list)
     return data
