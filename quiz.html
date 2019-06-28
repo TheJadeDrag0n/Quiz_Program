@@ -21,11 +21,14 @@
 						</div>
 						
 
-						<form action="/quiz_completed" method="post">
+						<form action="/quiz_completed" method="POST">
 				
 						% include('questions/question_1.html')
+						% include('questions/question_2.html')
+						% include('questions/question_3.html')
+						% include('questions/question_4.html')
 						
-							<button class="btn waves-effect black-text waves-light white" type="submit" name="submit" >Submit</button>
+							<button class="btn waves-effect black-text waves-light white" type="submit" name="action" >Submit</button>
 						
 						</form>
 
