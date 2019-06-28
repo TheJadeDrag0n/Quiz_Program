@@ -19,4 +19,4 @@
   - display answers
 
 * Verson 4.1
-  - changing the way the question is layout is it can function
+  - changing the way the question is layout so it can function
